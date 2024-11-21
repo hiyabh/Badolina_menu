@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Badolina - תפריט</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+      .menu-section {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .menu-item {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid transparent;
+        backdrop-filter: blur(8px);
+        background: rgba(255, 255, 255, 0.95);
+      }
+
+      .menu-item:hover {
+        transform: translateY(-8px);
+        border-color: rgba(209, 213, 219, 0.5);
+        box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+      }
+
+      .price-tag {
+        transition: all 0.4s ease;
+        background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+        border: 2px solid #f3f4f6;
+      }
+
+      .menu-item:hover .price-tag {
+        transform: scale(1.1) rotate(-3deg);
+        background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+        color: white;
+        border-color: #374151;
+      }
+
+      .section-title {
+        font-family: 'Playfair Display', serif;
+        letter-spacing: 0.05em;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(90deg, #1f2937 0%, #4b5563 50%, #1f2937 100%);
+      }
+
+      .vegan-icon::before {
+        content: "🌱";
+        font-size: 1.2em;
+        background: #f0fdf4;
+        padding: 4px;
+        border-radius: 50%;
+        margin-right: 8px;
+      }
+
+      .fish-icon::before {
+        content: "🐟";
+        font-size: 1.2em;
+        background: #eff6ff;
+        padding: 4px;
+        border-radius: 50%;
+        margin-right: 8px;
+      }
+
+      .special-icon::before {
+        content: "⭐";
+        font-size: 1.2em;
+        background: #fef3c7;
+        padding: 4px;
+        border-radius: 50%;
+        margin-right: 8px;
+      }
+
+      body {
+        background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+        background-attachment: fixed;
+        position: relative;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,%3Csvg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%239C92AC" fill-opacity="0.05"%3E%3Cpath d="M0 0h20L0 20z"/%3E%3C/g%3E%3C/svg%3E');
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 min-h-screen py-12">
+    <div class="max-w-6xl mx-auto p-6">
+      <!-- Header -->
+      <header class="text-center mb-16">
+        <h1 class="text-6xl font-bold text-gray-800 mb-4">BADOLINA</h1>
+        <div class="h-1 w-32 bg-gray-800 mx-auto"></div>
+      </header>
+
+      <main class="space-y-16">
+        <!-- Starters -->
+        <section class="menu-section">
+          <h2 class="section-title text-3xl font-bold text-gray-800">
+            STARTERS
+          </h2>
+          <div class="grid gap-6 md:grid-cols-2">
+            <div class="menu-item bg-white rounded-xl p-6 shadow-md">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="text-xl font-bold text-gray-800 mb-2">Ceviche</h3>
+                  <p class="text-gray-600">
+                    Straight from the ocean, our special tuna ceviche bathed in
+                    lime and ginger with coriander, chilli and fresh mango.
+                    Served with home-made bread
+                  </p>
+                </div>
+                <span
+                  class="price-tag text-xl font-bold text-gray-800 bg-gray-100 px-4 py-2 rounded-full"
+                  >$10</span
+                >
+              </div>
+            </div>
+
+            <div class="menu-item bg-white rounded-xl p-6 shadow-md">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="text-xl font-bold text-gray-800 mb-2">
+                    The Godfather
+                  </h3>
+                  <p class="text-gray-600">
+                    Slivers of chilled tuna/beef carpaccio, raw-cooked in
+                    balsamic and olive oil, topped with rocket leaves
+                  </p>
+                </div>
+                <span
+                  class="price-tag text-xl font-bold text-gray-800 bg-gray-100 px-4 py-2 rounded-full"
+                  >$10</span
+                >
+              </div>
+            </div>
+
+            <div class="menu-item bg-white rounded-xl p-6 shadow-md">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="text-xl font-bold text-gray-800 mb-2 vegan-icon">
+                    Multiple Choice
+                  </h3>
+                  <p class="text-gray-600">
+                    A delectable selection of humous, beetroot, baba ganoush and
+                    chimichurri sauce, served with pita bread
+                  </p>
+                </div>
+                <span
+                  class="price-tag text-xl font-bold text-gray-800 bg-gray-100 px-4 py-2 rounded-full"
+                  >$8</span
+                >
+              </div>
+            </div>
+
+            <div class="menu-item bg-white rounded-xl p-6 shadow-md">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="text-xl font-bold text-gray-800 mb-2 vegan-icon">
+                    Yalla Yalla
+                  </h3>
+                  <p class="text-gray-600">
+                    The ultimate street food, hand-rolled falafel served with
+                    tahini, lime and fresh parsley
+                  </p>
+                </div>
+                <span
+                  class="price-tag text-xl font-bold text-gray-800 bg-gray-100 px-4 py-2 rounded-full"
+                  >$6</span
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- From The Ocean -->
+        <section class="menu-section">
+          <h2 class="section-title text-3xl font-bold text-gray-800">
+            FROM THE OCEAN
+          </h2>
+          <div class="grid gap-6 md:grid-cols-2">
+            <div class="menu-item bg-white rounded-xl p-6 shadow-md">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="text-xl font-bold text-gray-800 mb-2 fish-icon">
+                    Jodari
+                  </h3>
+                  <p class="text-gray-600">
+                    Tuna steak served with potato cheese balls, cous cous salad
+                    & tartare sauce
+                  </p>
+                </div>
+                <span
+                  class="price-tag text-xl font-bold text-gray-800 bg-gray-100 px-4 py-2 rounded-full"
+                  >$13</span
+                >
+              </div>
+            </div>
+
+            <div class="menu-item bg-white rounded-xl p-6 shadow-md">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="text-xl font-bold text-gray-800 mb-2 fish-icon">
+                    Fish & Chips
+                  </h3>
+                  <p class="text-gray-600">
+                    Delicious golden crispy fried battered fish & chips, served
+                    with lime & mayo base dip
+                  </p>
+                </div>
+                <span
+                  class="price-tag text-xl font-bold text-gray-800 bg-gray-100 px-4 py-2 rounded-full"
+                  >$13</span
+                >
+              </div>
+            </div>
+
+            <!-- Continue with more ocean items... -->
+          </div>
+        </section>
+
+<!-- Salads -->
+<section class="menu-section">
+    <h2 class="section-title text-3xl font-bold text-gray-800">SALADS</h2>
+    <div class="grid gap-6 md:grid-cols-2">
+        <div class="menu-item bg-white rounded-xl p-6 shadow-md">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2 vegan-icon">Arabica</h3>
+                    <p class="text-gray-600">A simple but deliciously fresh middle eastern salad of cucumber, tomato, parsley, lime and olive oil.. perfect anytime!</p>
+                </div>
+                <span class="price-tag text-xl font-bold text-gray-800 bg-gray-100 px-4 py-2 rounded-full">$7</span>
+            </div>
+        </div>
+
+        <div class="menu-item bg-white rounded-xl p-6 shadow-md">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Green Leave Salad</h3>
+                    <p class="text-gray-600">Mixed Lettuce with mango & onion</p>
+                </div>
+                <span class="price-tag text-xl font-bold text-gray-800 bg-gray-100 px-4 py-2 rounded-full">$9</span>
+            </div>
+        </div>
+
+        <div class="menu-item bg-white rounded-xl p-6 shadow-md">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Zorba</h3>
+                    <p class="text-gray-600">A Greek inspired avocado, beans, tomatoes and boiled egg with delicious honey-mustard dressing</p>
+                </div>
+                <span class="price-tag text-xl font-bold text-gray-800 bg-gray-100 px-4 py-2 rounded-full">$9</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- From The Grill -->
+<section class="menu-section">
+    <h2 class="section-title text-3xl font-bold text-gray-800">FROM THE GRILL</h2>
+    <p class="text-gray-600 mb-6">SERVED WITH BREAD & SIGNATURE SALADS OR RICE OR CHIPS OF YOUR CHOICE</p>
+    <div class="grid gap-6 md:grid-cols-2">
+        <div class="menu-item bg-white rounded-xl p-6 shadow-md">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Fire Grilled Beef Kebab</h3>
+                    <p class="text-gray-600">Skewered Minced Beef with Herbs</p>
+                </div>
+                <span class="price-tag text-xl font-bold text-gray-800 bg-gray-100 px-4 py-2 rounded-full">$14</span>
+            </div>
+        </div>
+
+        <div class="menu-item bg-white rounded-xl p-6 shadow-md">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Fire Grilled Chicken Wings</h3>
+                    <p class="text-gray-600">4 wings. choose between Classic Paprika and Lime Tumeric</p>
+                </div>
+                <span class="price-tag text-xl font-bold text-gray-800 bg-gray-100 px-4 py-2 rounded-full">$12</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Classics -->
+<section class="menu-section">
+    <h2 class="section-title text-3xl font-bold text-gray-800">CLASSICS</h2>
+    <div class="grid gap-6 md:grid-cols-2">
+        <div class="menu-item bg-white rounded-xl p-6 shadow-md">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Badolina Burger</h3>
+                    <p class="text-gray-600">Beef Burger with caramelised onion, lettuce, tomato and dill pickles served with French Fries</p>
+                </div>
+                <span class="price-tag text-xl font-bold text-gray-800 bg-gray-100 px-4 py-2 rounded-full">$13</span>
+            </div>
+            <p class="text-sm text-gray-500 mt-2">Extra Toppings $1: Mushrooms, Egg, Jalapeño, cheese</p>
+        </div>
+
+        <div class="menu-item bg-white rounded-xl p-6 shadow-md">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2 vegan-icon">Margarita Pizza</h3>
+                    <p class="text-gray-600">Medium size Margarita Pizza</p>
+                </div>
+                <span class="price-tag text-xl font-bold text-gray-800 bg-gray-100 px-4 py-2 rounded-full">$12</span>
+            </div>
+            <p class="text-sm text-gray-500 mt-2">Extra Toppings $1: Olives/Mushroom/Onion/Jalapeño/Pineapple/Eggplant/Zucchini/ Chicken($3)</p>
+        </div>
+    </div>
+</section>
+
+<!-- Chicken -->
+<section class="menu-section">
+    <h2 class="section-title text-3xl font-bold text-gray-800">CHICKEN</h2>
+    <div class="grid gap-6 md:grid-cols-2">
+        <div class="menu-item bg-white rounded-xl p-6 shadow-md">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">The Sahara</h3>
+                    <p class="text-gray-600">A Moroccan inspired slow-cooked tender chicken with chilli tomatoes and green beans. Served on a bed of fluffy rice</p>
+                </div>
+                <span class="price-tag text-xl font-bold text-gray-800 bg-gray-100 px-4 py-2 rounded-full">$11</span>
+            </div>
+        </div>
+
+        <div class="menu-item bg-white rounded-xl p-6 shadow-md">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Humous shawarma</h3>
+                    <p class="text-gray-600">Our homemade humous, topped with olive oil, parsley whole chickpeas and chicken shawarma served with pita</p>
+                </div>
+                <span class="price-tag text-xl font-bold text-gray-800 bg-gray-100 px-4 py-2 rounded-full">$14</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Desserts -->
+<section class="menu-section">
+    <h2 class="section-title text-3xl font-bold text-gray-800">DESSERT</h2>
+    <div class="grid gap-6 md:grid-cols-2">
+        <div class="menu-item bg-white rounded-xl p-6 shadow-md">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Malabi</h3>
+                    <p class="text-gray-600">A creamy, coconut milk-based pudding perfumed with rose water, topped with pomegranate syrup and fresh coconut flakes</p>
+                </div>
+                <span class="price-tag text-xl font-bold text-gray-800 bg-gray-100 px-4 py-2 rounded-full">$7</span>
+            </div>
+        </div>
+
+        <div class="menu-item bg-white rounded-xl p-6 shadow-md">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Mango Mousse</h3>
+                    <p class="text-gray-600">Sweet, creamy and perfectly tangy!</p>
+                </div>
+                <span class="price-tag text-xl font-bold text-gray-800 bg-gray-100 px-4 py-2 rounded-full">$7</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Drinks -->
+<section class="menu-section">
+    <h2 class="section-title text-3xl font-bold text-gray-800">DRINKS</h2>
+    
+    <!-- Cocktails -->
+    <h3 class="text-2xl font-semibold text-gray-700 mb-4">Cocktails</h3>
+    <div class="grid gap-6 md:grid-cols-3 mb-8">
+        <div class="menu-item bg-white rounded-xl p-6 shadow-md">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Mojito</h3>
+                    <p class="text-gray-600">Bacardi, lime, Fresh Mint, topped with Soda</p>
+                </div>
+                <span class="price-tag text-xl font-bold text-gray-800 bg-gray-100 px-4 py-2 rounded-full">$9</span>
+            </div>
+        </div>
+        
+        <div class="menu-item bg-white rounded-xl p-6 shadow-md">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Pina Colada</h3>
+                    <p class="text-gray-600">Bacardi, Malibu, Pineapple Juice and Coconut Cream</p>
+                </div>
+                <span class="price-tag text-xl font-bold text-gray-800 bg-gray-100 px-4 py-2 rounded-full">$9</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Wine -->
+    <h3 class="text-2xl font-semibold text-gray-700 mb-4">Wine</h3>
+    <div class="grid gap-6 md:grid-cols-2 mb-8">
+        <div class="menu-item bg-white rounded-xl p-6 shadow-md">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Vieux Monde | Syrah-Grenache | France</h3>
+                    <p class="text-gray-600">A pool of red berry flavours. A velvety texture and smooth finish</p>
+                </div>
+                <div class="text-right">
+                    <span class="block text-lg font-bold text-gray-800">Bottle $43</span>
+                    <span class="block text-lg font-bold text-gray-800">Glass $8</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Soft Drinks -->
+    <h3 class="text-2xl font-semibold text-gray-700 mb-4">Soft Drinks</h3>
+    <div class="grid gap-6 md:grid-cols-3">
+        <div class="menu-item bg-white rounded-xl p-6 shadow-md">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Fresh Juices</h3>
+                    <p class="text-gray-600">Watermelon, Mango, Passion, Lime</p>
+                </div>
+                <span class="price-tag text-xl font-bold text-gray-800 bg-gray-100 px-4 py-2 rounded-full">$4</span>
+            </div>
+        </div>
+    </div>
+</section>      </main>
+
+      <footer class="mt-16 text-center text-gray-600">
+        <p>Service charge is not included</p>
+        <p class="mt-2">Prices include VAT</p>
+      </footer>
+    </div>
+
+    <script>
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".menu-section").forEach((section) => {
+        observer.observe(section);
+      });
+    </script>
+  </body>
+</html>
